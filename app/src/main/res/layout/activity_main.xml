@@ -89,14 +89,14 @@
             app:layout_constraintStart_toEndOf="@+id/btnShowDetails" />
 
         <Button
+            android:id="@+id/btnShowDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="Show My Dialog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelHello"
-            android:onClick="showDialog"/>
+            app:layout_constraintTop_toBottomOf="@+id/labelHello"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

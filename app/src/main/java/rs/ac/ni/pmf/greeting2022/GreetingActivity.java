@@ -1,18 +1,19 @@
 package rs.ac.ni.pmf.greeting2022;
 
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -29,6 +30,8 @@ public class GreetingActivity extends AppCompatActivity implements MyDialog.MyDi
 
     private ActivityResultLauncher<Person> _detailsActivityLauncher;
 
+    private Button _showDialogButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,31 @@ public class GreetingActivity extends AppCompatActivity implements MyDialog.MyDi
         Log.i(TAG, "onCreate()");
 
         _detailsActivityLauncher = registerForActivityResult(DetailsActivity.DETAILS_ACTIVITY_CONTRACT, this::onDetailsActivityResult);
+
+        _showDialogButton = findViewById(R.id.btnShowDialog);
+        _showDialogButton.setOnClickListener(this::showDialog);
+        registerForContextMenu(_showDialogButton);
+        registerForContextMenu(_editText);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        if(v.getId() == R.id.btnShowDialog) {
+            getMenuInflater().inflate(R.menu.button_context_menu, menu);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.context_menu_button_disable:
+                _showDialogButton.setEnabled(false);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 
     public void sayHello(View view) {
@@ -177,5 +205,28 @@ public class GreetingActivity extends AppCompatActivity implements MyDialog.MyDi
     @Override
     public void onYes(String username, String password) {
         Log.i(TAG, "Username: " + username + ", password: " + password);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.new_game:
+                Log.i(TAG, "Starting new game...");
+                break;
+            case R.id.quit_game:
+                Log.i(TAG, "Quiting the game...");
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+        return true;
     }
 }

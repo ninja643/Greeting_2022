@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/new_game"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/new_game"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/quit_game"
+        android:icon="@android:drawable/ic_delete"
+        android:title="@string/quit_game"
+        app:showAsAction="never" />
+
+    <group>
+        <item
+            android:id="@+id/Item2"
+            android:title="Item 2"
+            app:showAsAction="never"
+        />
+        <item
+            android:id="@+id/Item3"
+            android:title="Item 3"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/Item4"
+            android:title="Item 4"
+            app:showAsAction="never" />
+    </group>
+</menu>
