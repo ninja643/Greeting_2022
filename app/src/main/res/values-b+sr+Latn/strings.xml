@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Zdravo-2022!</string>
+    <string name="say_hello">Pozdravi</string>
+    <string name="please_enter_your_name">Unesite svoje ime</string>
+    <string name="enter_your_age">Unesite svoje godine</string>
+    <string name="cancel">Odustani</string>
+    <string name="accept">Prihvati</string>
+    <!--<string name="greeting">Imaš %2$d godina, a zoveš se %1$s. Zdravo!</string>-->
+</resources>

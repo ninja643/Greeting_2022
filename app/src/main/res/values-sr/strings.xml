@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Здраво-2022!</string>
+    <string name="say_hello">Поздрави</string>
+    <string name="please_enter_your_name">Унесите своје име</string>
+    <string name="enter_your_age">Унесите своје године</string>
+    <string name="cancel">Одустани</string>
+    <string name="accept">Прихвати</string>
+    <!--<string name="greeting">Имаш %2$d година, а зовеш се %1$s. Здраво!</string>-->
+
+    <plurals name="greeting">
+        <item quantity="one">Имаш %2$d годину, а зовеш се %1$s. Здраво!</item>
+        <item quantity="few">Имаш %2$d године, а зовеш се %1$s. Здраво!</item>
+        <item quantity="other">Имаш %2$d година, а зовеш се %1$s. Здраво!</item>
+    </plurals>
+
+</resources>

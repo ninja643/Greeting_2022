@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Greetings 2022!</string>
+    <string name="say_hello">Say hello</string>
+    <string name="please_enter_your_name">Please enter your name</string>
+    <string name="enter_your_age">Enter your age</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="edit_first_name">First name</string>
+    <string name="edid_last_name">Last name</string>
+    <string name="edit_person_canceled">No data received from Details activity</string>
+    <string name="dialog_title">Delete data?</string>
+    <string name="dialog_content">Are you sure?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_cancel">Cancel</string>
+    <!--<string name="greeting">Hello %1$s, you are %2$d old!</string>-->
+
+    <plurals name="greeting">
+        <item quantity="other">Hello %1$s, you are %2$d old!</item>
+    </plurals>
+</resources>
