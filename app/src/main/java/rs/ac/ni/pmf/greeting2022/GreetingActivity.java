@@ -1,11 +1,15 @@
 package rs.ac.ni.pmf.greeting2022;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -13,9 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class GreetingActivity extends AppCompatActivity implements MyDialog.MyDialogListener {
+public class GreetingActivity extends AppCompatActivity implements MyDialog.MyDialogListener, CustomDialog.CustomDialogListener {
 
     public static final String TAG = "GREETING_INFO";
+    public static final String MY_DIALOG = "MY_DIALOG";
 
     private EditText _editText;
     private TextView _label;
@@ -132,8 +137,26 @@ public class GreetingActivity extends AppCompatActivity implements MyDialog.MyDi
     }
 
     public void showDialog(View view) {
-        final MyDialog dialog = new MyDialog();
-        dialog.show(getSupportFragmentManager(), "MY_DIALOG");
+//        new MyDialog().show(getSupportFragmentManager(), MY_DIALOG);
+//        new ListDialog().show(getSupportFragmentManager(), MY_DIALOG);
+        SingleChoiceDialog dialog = new SingleChoiceDialog(new String[]{"One", "Two", "Three", "Four"}, -1);
+        dialog.show(getSupportFragmentManager(), MY_DIALOG);
+//        new MultiChoiceDialog().show(getSupportFragmentManager(), MY_DIALOG);
+//        new CustomDialog().show(getSupportFragmentManager(), MY_DIALOG);
+
+//        final TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+//                (timePicker, hourOfDay, minute) -> {
+//                    Log.i(TAG, "Time picked: " + hourOfDay + " : " + minute);
+//                }, 0, 0, false);
+//        timePickerDialog.show();
+
+//        new DatePickerDialog(this,
+//                (datePicker, year, month, day) -> {
+//                    Log.i(TAG, year + " - " + month + " - " + day);
+//                },
+//                2022,
+//                3,
+//                4).show();
     }
 
     @Override
@@ -149,5 +172,10 @@ public class GreetingActivity extends AppCompatActivity implements MyDialog.MyDi
     @Override
     public void onCancel(MyDialog dialog) {
         Log.i(TAG, "Cancel selected. Value: " + dialog.getValue());
+    }
+
+    @Override
+    public void onYes(String username, String password) {
+        Log.i(TAG, "Username: " + username + ", password: " + password);
     }
 }

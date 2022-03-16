@@ -13,6 +13,8 @@
     <string name="dialog_yes">Yes</string>
     <string name="dialog_no">No</string>
     <string name="dialog_cancel">Cancel</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
     <!--<string name="greeting">Hello %1$s, you are %2$d old!</string>-->
 
     <plurals name="greeting">

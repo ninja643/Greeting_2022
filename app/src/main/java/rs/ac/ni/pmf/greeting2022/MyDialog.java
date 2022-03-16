@@ -60,4 +60,5 @@ public class MyDialog extends DialogFragment {
 
         return builder.create();
     }
+
 }
